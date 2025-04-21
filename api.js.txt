@@ -1,0 +1,59 @@
+const myHeaders = new Headers();
+myHeaders.append("authorization", "e1ed57ff-779c-48f1-9530-b8dff13e46b9");
+
+
+
+functionMe(){
+const requestOptions = {
+  method: "GET",
+  headers: myHeaders,
+  redirect: "follow"
+};
+
+fetch("https://nomoreparties.co/v1/wff-cohort-1/users/me", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+}
+
+
+const urlencoded = new URLSearchParams();
+
+funcCards(){
+const requestOptions = {
+  method: "GET",
+  headers: myHeaders,
+  body: urlencoded,
+  redirect: "follow"
+};
+
+fetch("https://mesto.nomoreparties.co/v1/wff-cohort-1/cards?_id=be23c6910b1b927ebfd495da", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+}
+
+
+const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("authorization", "e1ed57ff-779c-48f1-9530-b8dff13e46b9");
+
+const raw = JSON.stringify({
+  "name": "Andropov",
+  "about": "The best"
+});
+
+funcPatch(){
+const requestOptions = {
+  method: "PATCH",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+return fetch("https://nomoreparties.co/v1/wff-cohort-1/users/me?Content-Type=application/json", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+
+}
